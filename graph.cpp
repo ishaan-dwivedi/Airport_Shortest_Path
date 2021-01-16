@@ -437,16 +437,14 @@ void Graph::savePNG(string title) const
     system(rmCommand.c_str());
 }
 
-void Graph::ParseData(string filename, Graph &network) {
+void Graph::parseData(string filename, Graph &network) {
   std::ifstream infile(filename);
   int edge_count = 0;
   int node_count = 0;
   if(infile.is_open()){
     string node1, node2;
     while (infile >> node1 >> node2){
-        /**if(node1 == null || node2 == NULL){
-            break;
-        }*/
+       
         if(!network.vertexExists(node1)){
             network.insertVertex(node1);
             node_count++;
@@ -467,8 +465,7 @@ void Graph::ParseData(string filename, Graph &network) {
   }
   
 network.size += node_count;
-  //cout<<"nodes: "+ to_string(node_count)<<endl;
-  //cout<<"edges: "+ to_string(edge_count)<<endl;
+  
 }
 
 std::map<Vertex, int> Graph::getShortestPath(Graph input_graph, Vertex source) {

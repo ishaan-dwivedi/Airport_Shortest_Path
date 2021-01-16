@@ -1,7 +1,7 @@
 #include <iostream>
 #include "graph.h"
 
-int main(int argc, char **argv) {
+int main() {
 
     // Make sure only one username shows in commit, not a duplicate
     // Added comment

@@ -223,7 +223,7 @@ public:
      * @param network - Graph to populate
      * @return A vector filled with vertex's that form the shortest path from source to destination.
      */
-    static void ParseData(string filename, Graph &network);
+    static void parseData(string filename, Graph &network);
 
     /**
      * Returns a vector with vertex's forming the shortest path from one node to another.
