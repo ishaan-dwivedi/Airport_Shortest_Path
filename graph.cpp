@@ -449,7 +449,7 @@ void Graph::parseData(string file_name, Graph &network) {
 
 }
 
-double calculateDistance(double latitude_one, double longitude_one, double latitude_two, double longitude_two) {
+double Graph::calculateDistance(double latitude_one, double longitude_one, double latitude_two, double longitude_two) {
     return 9.0;
 }
 

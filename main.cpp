@@ -8,7 +8,7 @@ int main() {
     // Changed user email
     Graph g(true);
     Graph d(false);
-    g.parseData("sample_airport_data.txt", d);
+    Graph::parseData("sample_airport_data.txt", g);
     std::cout << "Makefile works" << std::endl;
     return 0;
 }
