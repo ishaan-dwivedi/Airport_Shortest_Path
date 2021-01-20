@@ -226,6 +226,16 @@ public:
     static void parseData(string filename, Graph &network);
 
     /**
+     * Returns the distance between two points from given longitudes and latitudes
+     * @param latitude_one - latitude value of first point
+     * @param longitude_one - longitude value of first point
+     * @param latitude_two - latitude value of second point
+     * @param longitude_two - longitude value of second point
+     * @return A vector filled with vertex's that form the shortest path from source to destination.
+     */
+    double calculateDistance(double latitude_one, double longitude_one, double latitude_two, double longitude_two);
+
+    /**
      * Returns a vector with vertex's forming the shortest path from one node to another.
      * @param source - one vertex
      * @param destination - another vertex

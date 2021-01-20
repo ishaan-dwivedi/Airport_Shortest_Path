@@ -437,35 +437,20 @@ void Graph::savePNG(string title) const
     system(rmCommand.c_str());
 }
 
-void Graph::parseData(string filename, Graph &network) {
-  std::ifstream infile(filename);
-  int edge_count = 0;
-  int node_count = 0;
-  if(infile.is_open()){
-    string node1, node2;
-    while (infile >> node1 >> node2){
-       
-        if(!network.vertexExists(node1)){
-            network.insertVertex(node1);
-            node_count++;
-        }
-        if(!network.vertexExists(node2)){
-            network.insertVertex(node2);
-            node_count++;
-        }
-        if(!network.edgeExists(node1, node2)){
-            network.insertEdge(node1, node2);
-            network.setEdgeWeight(node1, node2, 1);
-            edge_count++;
-        }
-    }
-  }
-  else{
-    cout<<"error!"<<endl;
-  }
+void Graph::parseData(string file_name, Graph &network) {
   
-network.size += node_count;
-  
+  std::ifstream file(file_name);
+
+  std::string line;
+
+  while (std::getline(file, line)) {
+      std::cout << "Airport: " << line << std::endl;
+  }
+
+}
+
+double calculateDistance(double latitude_one, double longitude_one, double latitude_two, double longitude_two) {
+    return 9.0;
 }
 
 std::map<Vertex, int> Graph::getShortestPath(Graph input_graph, Vertex source) {

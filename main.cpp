@@ -7,6 +7,8 @@ int main() {
     // Added comment
     // Changed user email
     Graph g(true);
+    Graph d(false);
+    g.parseData("sample_airport_data.txt", d);
     std::cout << "Makefile works" << std::endl;
     return 0;
 }
