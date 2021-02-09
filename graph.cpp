@@ -4,6 +4,7 @@
 #include <queue>
 #include <algorithm>
 #include <iostream>
+#include <cmath>
 
 const Vertex Graph::InvalidVertex = "_CS225INVALIDVERTEX";
 const int Graph::InvalidWeight = INT_MIN;
@@ -12,7 +13,7 @@ const Edge Graph::InvalidEdge = Edge(Graph::InvalidVertex, Graph::InvalidVertex,
 
 Graph::Graph(bool weighted) : weighted(weighted), directed(false), random(Random(0)), size(0)
 {
-    std::cout << "Graph created" << std::endl;
+    //std::cout << "Graph created" << std::endl;
 }
 
 Graph::Graph(bool weighted, bool directed) : weighted(weighted),directed(directed), random(Random(0)), size(0)
@@ -443,14 +444,50 @@ void Graph::parseData(string file_name, Graph &network) {
 
   std::string line;
 
+
   while (std::getline(file, line)) {
-      std::cout << "Airport: " << line << std::endl;
+
+    // Contains a line input separated by commas
+    std::vector <string> data_separated;
+    std::stringstream single_airport(line);
+
+    while (single_airport.good() == true) {
+        std::string part;
+        std::getline(single_airport, part, ',');
+        data_separated.push_back(part);
+    }
+
+    // 6th and 7th index of data_separated contains the latitude and longitude respectively
+    std::cout << "Location: " << data_separated[2] << " Latitude: " << data_separated[6] << " " << "Longitude: " << data_separated[7] << std::endl;
+    
   }
 
 }
 
 double Graph::calculateDistance(double latitude_one, double longitude_one, double latitude_two, double longitude_two) {
-    return 9.0;
+    // Implement Haversine's Formula
+    
+    // Return distance between two geographical points in miles
+    double distance = 0.0;
+
+    // Radius of Earth in Kilometers
+    const double RADIUS = 6378.1;
+
+    // Convert Latitude and Longitude to Radians
+    double lat1 = (M_PI / 180) * latitude_one;
+    double long1 = (M_PI / 180) * longitude_one;
+    double lat2 = (M_PI / 180) * latitude_two;
+    double long2 = (M_PI / 180) * latitude_two;
+
+
+    double inner_sqrt = pow(sin((lat2 - lat1) / 2), 2) + (cos(lat1) * cos(lat2) * 
+                        pow(sin((long2 - long1) / 2), 2));
+    
+    distance = 2 * RADIUS * asin(sqrt(inner_sqrt)) * 0.621371;
+    std::cout << "Distance: " << distance << std::endl;
+    
+        
+    return distance;
 }
 
 std::map<Vertex, int> Graph::getShortestPath(Graph input_graph, Vertex source) {
