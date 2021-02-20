@@ -477,17 +477,16 @@ double Graph::calculateDistance(double latitude_one, double longitude_one, doubl
     double lat1 = (M_PI / 180) * latitude_one;
     double long1 = (M_PI / 180) * longitude_one;
     double lat2 = (M_PI / 180) * latitude_two;
-    double long2 = (M_PI / 180) * latitude_two;
-
+    double long2 = (M_PI / 180) * longitude_two;
 
     double inner_sqrt = pow(sin((lat2 - lat1) / 2), 2) + (cos(lat1) * cos(lat2) * 
                         pow(sin((long2 - long1) / 2), 2));
     
+    // distance is in miles
     distance = 2 * RADIUS * asin(sqrt(inner_sqrt)) * 0.621371;
-    std::cout << "Distance: " << distance << std::endl;
-    
         
     return distance;
+
 }
 
 std::map<Vertex, int> Graph::getShortestPath(Graph input_graph, Vertex source) {

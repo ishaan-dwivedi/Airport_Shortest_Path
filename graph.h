@@ -226,7 +226,7 @@ public:
     static void parseData(string filename, Graph &network);
 
     /**
-     * Returns the distance between two points from given longitudes and latitudes
+     * Returns the distance in miles between two points from given longitudes and latitudes
      * @param latitude_one - latitude value of first point
      * @param longitude_one - longitude value of first point
      * @param latitude_two - latitude value of second point

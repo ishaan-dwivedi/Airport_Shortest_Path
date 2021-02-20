@@ -34,8 +34,14 @@ TEST_CASE("Test for calculating the distance given two map coordinates", "") {
   Graph place_holder(true);
   double ans = place_holder.calculateDistance(IAD_LAT, IAD_LONG, ORD_LAT, ORD_LONG);
 
+  // Flag to check if ans is + or - 20 miles of the correct answer
+  bool isCorrect = false;
+
+  if (ans > IAD_ORD - 20 && ans < IAD_ORD + 20) {
+    isCorrect = true;
+  }
   
-  REQUIRE( ans == IAD_ORD );
+  REQUIRE( isCorrect );
 }
 
 // Dijkstra Test Cases
