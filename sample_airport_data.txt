@@ -3,3 +3,4 @@
 3682,"Hartsfield Jackson Atlanta International Airport","Atlanta","United States","ATL","KATL",33.6367,-84.428101,1026,-5,"A","America/New_York","airport","OurAirports"
 3484,"Los Angeles International Airport","Los Angeles","United States","LAX","KLAX",33.94250107,-118.4079971,125,-8,"A","America/Los_Angeles","airport","OurAirports"
 3697,"La Guardia Airport","New York","United States","LGA","KLGA",40.77719879,-73.87259674,21,-5,"A","America/New_York","airport","OurAirports"
+
